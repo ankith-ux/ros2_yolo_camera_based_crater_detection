@@ -1,0 +1,31 @@
+
+
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+
+diff_drive_controller:
+  type: "diff_drive_controller/DiffDriveController"
+  ros__parameters:
+    base_frame_id: "base_link"
+    odom_frame_id: "odom"
+    
+    left_wheel: ["front_left_wheel_joint", "rear_left_wheel_joint"]
+    right_wheel: ["front_right_wheel_joint", "rear_right_wheel_joint"]
+    wheel_separation: 0.3
+    wheel_radius: 0.05
+    
+    command_timeout: 0.5
+    publish_rate: 50
+    max_vel_x: 0.2
+    max_vel_th: 1.0
+    min_vel_x: -0.2
+    min_vel_th: -1.0
+
+camera_controller:
+  type: "camera_controller/CameraController"
+  ros__parameters:
+    camera_name: "camera"
+    image_topic_name: "/camera/image_raw"
+    camera_info_topic_name: "/camera/camera_info"
+    frame_id: "camera_link"
